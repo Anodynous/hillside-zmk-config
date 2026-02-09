@@ -63,7 +63,7 @@ ZMK_MACRO(macro_tilde,
     /delete-property/ ignore-modifiers;
 };
 
-# Replace below
+// Replace below
 #define QWERTY_L 0
 #define DVORAK_L 1
 #define COLEMK_L 2
@@ -76,7 +76,7 @@ ZMK_MACRO(macro_tilde,
 #define Copy   LC(C)
 #define Paste  LC(V)
 #define Redo   LC(Y)
-# Replace above
+// Replace above
 
 / {
         keymap {
