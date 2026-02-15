@@ -84,7 +84,7 @@ ZMK_MACRO(macro_tilde,
                         >;
                 };
 
-                        lower_layer {
+                lower_layer {
 /* LOWER
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -100,7 +100,7 @@ ZMK_MACRO(macro_tilde,
                         >;
                 };
 
-                        raise_layer {
+                raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -117,7 +117,7 @@ ZMK_MACRO(macro_tilde,
                 };
 
 		
-                        adjust_layer {
+                adjust_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -134,7 +134,7 @@ ZMK_MACRO(macro_tilde,
                 };
 
 
-                        numpad_layer {
+                numpad_layer {
 /* NUMPAD
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -147,11 +147,11 @@ ZMK_MACRO(macro_tilde,
 &trans        &trans        &trans        &kp N4        &kp N5        &kp N6                                                                         &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
 &trans        &trans        &trans        &kp N1        &kp N2        &kp N3        &trans                                             &trans        &trans        &kp N1        &kp N2        &kp N3        &kp KP_COMMA  &trans
                                                         &trans        &trans        &trans       &kp N0                   &trans       &kp KP_ENTER  &kp N0        &trans
-            >;
-        };
+                        >;
+                };
 
 
-                        steno_layer {
+                steno_layer {
 /* STENO
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -164,11 +164,11 @@ ZMK_MACRO(macro_tilde,
 &kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G                                                                          &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
 &trans        &none         &none         &none         &none         &none         &trans                                             &trans        &none         &none         &none         &none         &none         &kp SPACE
                                                         &kp N1        &kp C         &kp V        &trans                   &trans       &kp N         &kp M         &kp N1
-            >;
-        };
+                        >;
+                };
 
 
-                        gaming_layer {
+                gaming_layer {
 /* GAMING
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | `     |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
@@ -185,7 +185,7 @@ ZMK_MACRO(macro_tilde,
                 };
 
 
-                        template_layer {
+//                template_layer {
 /* TEMPLATE
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
@@ -198,8 +198,8 @@ ZMK_MACRO(macro_tilde,
 //&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
 //&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
 //                                                        &trans        &trans        &trans       &trans                   &trans       &trans        &trans        &trans
-//            >;
-//        };
+//                        >;
+//                };
         
         
         };
