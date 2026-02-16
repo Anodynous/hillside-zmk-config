@@ -155,10 +155,10 @@ ZMK_MACRO(macro_tilde,
  *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
-&trans        &trans        &kp N7        &kp N8        &kp N9        &trans                                                                         &trans        &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &trans
-&trans        &trans        &kp N4        &kp N5        &kp N6        &trans                                                                         &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
-&trans        &trans        &kp N1        &kp N2        &kp N3        &trans       &trans                                             &to DEFAULT    &kp N1        &kp N2        &kp N3        &kp KP_COMMA  &trans        &trans
-                                                        &trans        &kp N0       &trans       &mo  LOWER            &mo  RAISE      &kp KP_ENTER   &kp N0        &trans
+&trans        &kp DOT       &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                   &trans        &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &trans
+&trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                    &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
+&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp KP_COMMA &trans                                             &to DEFAULT    &trans        &kp N1        &kp N2        &kp N3        &kp KP_COMMA  &kp  DOT
+                                                        &trans        &kp N0       &trans       &trans                   &trans       &kp KP_ENTER   &kp N0        &trans
                         >;
                 };
 
@@ -175,7 +175,7 @@ ZMK_MACRO(macro_tilde,
 &trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp FI_ARNG
 &kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G                                                                          &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
 &trans        &none         &none         &none         &none         &none         &trans                                             &to DEFAULT   &none         &none         &none         &none         &none         &kp SPACE
-                                                        &kp N1        &kp C         &kp V        &mo  LOWER            &mo  RAISE      &kp N         &kp M         &kp N1
+                                                        &kp N1        &kp C         &kp V        &trans                   &trans       &kp N         &kp M         &kp N1
                         >;
                 };
 
@@ -192,7 +192,7 @@ ZMK_MACRO(macro_tilde,
 &kp  ESC      &kp  Q        &kp  X        &kp  M        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
 &kp  TAB      &kp  A        &kp  W        &kp  E        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
 &kp  LCTRL    &kp  Z        &kp  S        &kp  D        &kp  V        &kp  B       &kp  ESC                                           &to DEFAULT    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &kp  C       &kp  SPACE    &kp  LALT      &mo  LOWER            &mo  RAISE    &kp  RET      &kp  RALT     &kp  RGUI
+                                                        &kp  C       &kp  SPACE    &kp  LALT      &trans                   &trans     &kp  RET      &kp  RALT     &kp  RGUI
                         >;
                 };
 
