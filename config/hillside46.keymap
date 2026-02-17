@@ -59,6 +59,17 @@ ZMK_MACRO(macro_tilde,
                <&macro_release &kp RALT>,
                <&macro_tap &kp BSPC>;
 )
+// Macro for outputting a single em dash (—) punctuation mark
+ZMK_MACRO(macro_emdash,
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings = <&macro_press &kp RALT>,
+               <&macro_tap &kp KP_N0>,
+               <&macro_tap &kp KP_N1>,
+               <&macro_tap &kp KP_N5>,
+               <&macro_tap &kp KP_N1>,
+               <&macro_release &kp RALT>;
+)
 &soft_off {
     hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
 };
@@ -157,7 +168,7 @@ ZMK_MACRO(macro_tilde,
  *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
-&kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                          &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
+&kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                          &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &macro_emdash
 &trans        &kp  FI_EXLM  &kp  FI_DQUO  &kp  FI_HASH  &kp  FI_EQL   &kp  FI_PERC                                                                     &kp  FI_AMPR  &kp  FI_SLSH  &kp  FI_LPRN  &kp  FI_RPRN  &kp  FI_QUES  &kp FI_PIPE
 &macro_caret  &macro_tilde  &kp  FI_AT    &kp  FI_PLUS  &kp  FI_LCBR  &kp  FI_RCBR  &kp C_VOL_DN                                       &kp C_VOL_UP    &kp  FI_LBRC  &kp  FI_RBRC  &kp  FI_LABK  &kp  FI_RABK  &kp  FI_BSLS  &kp FI_ASTR
                                                         &trans        &trans        &trans          &trans                &mo ADJUST   &trans          &trans        &trans
