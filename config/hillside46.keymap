@@ -119,13 +119,13 @@ ZMK_MACRO(macro_tilde,
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ * |       |       |       |       |       |       | LALT  |-------------------|       |       |       |       |       |       |       |
  *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
 &trans        &kp COMMA     &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                     &trans        &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &trans
 &trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                      &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
-&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT       &kp  C_MUTE                                        &kp C_PP        &trans        &kp N1        &kp N2        &kp N3        &kp DOT       &kp COMMA
+&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT       &kp  LALT                                          &trans          &trans        &kp N1        &kp N2        &kp N3        &kp DOT       &kp COMMA
                                                         &trans        &kp N0        &trans          &mo  LOWER            &mo  RAISE   &kp KP_ENTER    &kp N0        &trans
                         >;
                 };
