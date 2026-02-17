@@ -61,14 +61,14 @@ ZMK_MACRO(macro_tilde,
 )
 // Macro for outputting a single em dash (—) punctuation mark
 ZMK_MACRO(macro_emdash,
-    wait-ms = <10>;
-    tap-ms = <10>;
-    bindings = <&macro_press &kp RALT>,
+    wait-ms = <2>;
+    tap-ms = <2>;
+    bindings = <&macro_press &kp LALT>,
                <&macro_tap &kp KP_N0>,
                <&macro_tap &kp KP_N1>,
                <&macro_tap &kp KP_N5>,
                <&macro_tap &kp KP_N1>,
-               <&macro_release &kp RALT>;
+               <&macro_release &kp LALT>;
 )
 &soft_off {
     hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
