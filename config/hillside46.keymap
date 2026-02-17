@@ -19,12 +19,12 @@
 
 // Custom Layers
 #define DEFAULT 0
-#define LOWER 1
-#define RAISE 2
-#define ADJUST 3
-#define NUMPAD 4
-#define STENO 5
-#define GAMING 6
+#define GAMING 1
+#define NUMPAD 2
+#define STENO 3
+#define LOWER 4
+#define RAISE 5
+#define ADJUST 6
 
 // Custom Keycodes
 #define _SNIP LG(LS(S))  // Windows snip shortcut
@@ -89,12 +89,64 @@ ZMK_MACRO(macro_tilde,
  *                                 | NUMPAD|  LALT | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
  */
                         bindings = <
-&kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
-&kp  LSHFT    &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
-&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  C_MUTE                                        &kp C_PP      &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &mo NUMPAD    &kp  LALT     &kp  SPACE     &mo  LOWER            &mo  RAISE    &kp  RET      &kp  RALT     &kp  RGUI
+&kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                           &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
+&kp  LSHFT    &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                           &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
+&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  C_MUTE                                        &kp C_PP        &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
+                                                        &mo NUMPAD    &kp  LALT     &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  RALT     &kp  RGUI
                         >;
                 };
+
+
+                gaming_layer {
+/* GAMING
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |  ESC  |  TAB  |   Q   |   W   |   E   |   R   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
+ * |   M   | LSHIFT|   A   |   S   |   D   |   F   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
+ * |   1   |  CTRL |   Z   |   X   |   C   |   V   |   T   |-------------------|DEFAULT|   N   |   M   |   ,   |   .   |   -   | RSHIFT|
+ *                                 |   G   |  LALT | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
+ */
+                        bindings = <
+&kp  ESC      &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R                                                                           &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
+&kp  M        &kp  LSHIFT   &kp  A        &kp  S        &kp  D        &kp  F                                                                           &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
+&kp  N1       &kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V       &kp  T                                              &to DEFAULT     &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
+                                                        &kp  G        &kp  LALT    &kp  SPACE      &mo  LOWER             &mo  RAISE   &kp  RET        &kp  RALT     &kp  RGUI
+                        >;
+                };
+
+
+                numpad_layer {
+/* NUMPAD
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ *                                 |       |       |       |        |---|      |       |       |       |
+ */
+                        bindings = <
+&trans        &kp COMMA     &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                     &trans        &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &trans
+&trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                      &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
+&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT      &trans                                              &to DEFAULT     &trans        &kp N1        &kp N2        &kp N3        &kp DOT       &kp COMMA
+                                                        &trans        &kp N0       &trans          &mo  LOWER             &mo  RAISE   &kp KP_ENTER    &kp N0        &trans
+                        >;
+                };
+
+
+                steno_layer {
+/* STENO
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ *                                                                  |       |       |       |        |---|      |       |       |       |
+ */
+                        bindings = <
+&trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                            &kp Y         &kp U         &kp I         &kp O         &kp P         &kp FI_ARNG
+&kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G                                                                            &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
+&trans        &none         &none         &none         &none         &none         &trans                                             &to DEFAULT     &none         &none         &none         &none         &none         &kp SPACE
+                                                        &kp N1        &kp C         &kp V        &mo  LOWER             &mo  RAISE     &kp N           &kp M         &kp N1
+                        >;
+                };
+
 
                 lower_layer {
 /* LOWER
@@ -105,12 +157,13 @@ ZMK_MACRO(macro_tilde,
  *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
-&kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
-&trans        &kp  FI_EXLM  &kp  FI_DQUO  &kp  FI_HASH  &kp  FI_EQL   &kp  FI_PERC                                                                   &kp  FI_AMPR  &kp  FI_SLSH  &kp  FI_LPRN  &kp  FI_RPRN  &kp  FI_QUES  &kp FI_PIPE
-&macro_caret  &macro_tilde  &kp  FI_AT    &kp  FI_PLUS  &kp  FI_LCBR  &kp  FI_RCBR  &kp C_VOL_DN                                       &kp C_VOL_UP  &kp  FI_LBRC  &kp  FI_RBRC  &kp  FI_LABK  &kp  FI_RABK  &kp  FI_BSLS  &kp FI_ASTR
-                                                        &trans        &trans        &trans       &trans                   &mo ADJUST   &trans        &trans        &trans
+&kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                          &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
+&trans        &kp  FI_EXLM  &kp  FI_DQUO  &kp  FI_HASH  &kp  FI_EQL   &kp  FI_PERC                                                                     &kp  FI_AMPR  &kp  FI_SLSH  &kp  FI_LPRN  &kp  FI_RPRN  &kp  FI_QUES  &kp FI_PIPE
+&macro_caret  &macro_tilde  &kp  FI_AT    &kp  FI_PLUS  &kp  FI_LCBR  &kp  FI_RCBR  &kp C_VOL_DN                                       &kp C_VOL_UP    &kp  FI_LBRC  &kp  FI_RBRC  &kp  FI_LABK  &kp  FI_RABK  &kp  FI_BSLS  &kp FI_ASTR
+                                                        &trans        &trans        &trans       &trans                   &mo ADJUST   &trans          &trans        &trans
                         >;
                 };
+
 
                 raise_layer {
 /* RAISE
@@ -121,14 +174,14 @@ ZMK_MACRO(macro_tilde,
  *                                 |       |       |       |        |---|      |       |       |       |
   */
                         bindings = <
-&trans        &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                          &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
-&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                          &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &kp FI_QUOT
-&trans        &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
-                                                        &trans        &trans        &kp BSPC     &mo ADJUST               &trans       &trans         &trans        &trans
+&trans        &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
+&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &kp FI_QUOT
+&trans        &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
+                                                        &trans        &trans        &kp BSPC     &mo ADJUST               &trans       &trans          &trans        &trans
                         >;
                 };
 
-		
+
                 adjust_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
@@ -146,57 +199,6 @@ ZMK_MACRO(macro_tilde,
                 };
 
 
-                numpad_layer {
-/* NUMPAD
- * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
- */
-                        bindings = <
-&trans        &kp COMMA     &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                   &trans        &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &trans
-&trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                    &trans        &kp N4        &kp N5        &kp N6        &kp KP_PLUS   &trans
-&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT      &trans                                             &to DEFAULT    &trans        &kp N1        &kp N2        &kp N3        &kp DOT       &kp COMMA
-                                                        &trans        &kp N0       &trans       &trans                   &trans       &kp KP_ENTER   &kp N0        &trans
-                        >;
-                };
-
-
-                steno_layer {
-/* STENO
- * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
- */
-                        bindings = <
-&trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                          &kp Y         &kp U         &kp I         &kp O         &kp P         &kp FI_ARNG
-&kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G                                                                          &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
-&trans        &none         &none         &none         &none         &none         &trans                                             &to DEFAULT   &none         &none         &none         &none         &none         &kp SPACE
-                                                        &kp N1        &kp C         &kp V        &trans                   &trans       &kp N         &kp M         &kp N1
-                        >;
-                };
-
-
-                gaming_layer {
-/* GAMING
- * -------------------------------------------------------------------------------------------------------------------------------------
- * |  ESC  |  TAB  |   Q   |   W   |   E   |   R   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
- * |   M   | LSHIFT|   A   |   S   |   D   |   F   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
- * |   1   |  CTRL |   Z   |   X   |   C   |   V   |   T   |-------------------|DEFAULT|   N   |   M   |   ,   |   .   |   -   | RSHIFT|
- *                                 |   G   |  LALT | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
- */
-                        bindings = <
-&kp  ESC      &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
-&kp  M        &kp  LSHIFT   &kp  A        &kp  S        &kp  D        &kp  F                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
-&kp  N1       &kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V       &kp  T                                             &to DEFAULT    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &kp  G        &kp  LALT    &kp  SPACE      &mo  LOWER           &mo  RAISE    &kp  RET       &kp  RALT     &kp  RGUI
-                        >;
-                };
-
-
 //                template_layer {
 /* TEMPLATE
  * -------------------------------------------------------------------------------------------------------------------------------------
@@ -208,8 +210,8 @@ ZMK_MACRO(macro_tilde,
 //                        bindings = <
 //&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
 //&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
-//&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
-//                                                        &trans        &trans        &trans       &trans                   &trans       &trans        &trans        &trans
+//&trans        &trans        &trans        &trans        &trans        &trans        &trans                                           &trans          &trans        &trans        &trans        &trans        &trans        &trans
+//                                                        &trans        &trans        &trans       &trans                 &trans       &trans          &trans        &trans
 //                        >;
 //                };
         
