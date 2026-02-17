@@ -183,16 +183,16 @@ ZMK_MACRO(macro_tilde,
                 gaming_layer {
 /* GAMING
  * -------------------------------------------------------------------------------------------------------------------------------------
- * | TAB   |   Q   |   X   |   M   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
- * | LSHIFT|   A   |   W   |   E   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
- * | CTRL  |   Z   |   S   |   D   |   V   |   B   |  MUTE |-------------------| PLAY  |   N   |   M   |   ,   |   .   |   -   | RSHIFT|
- *                                 |   C   | SPACE |  LALT | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
+ * |  ESC  |  TAB  |   Q   |   W   |   E   |   R   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
+ * |   M   | LSHIFT|   A   |   S   |   D   |   F   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
+ * |   1   |  CTRL |   Z   |   X   |   C   |   V   |   G   |-------------------|DEFAULT|   N   |   M   |   ,   |   .   |   -   | RSHIFT|
+ *                                 |   T   |  LALT | SPACE |   2   |---| RAISE | ENTER |  RALT |  GUI  |
  */
                         bindings = <
-&kp  TAB      &kp  Q        &kp  X        &kp  M        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
-&kp  LSHFT    &kp  A        &kp  W        &kp  E        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
-&kp  LCTRL    &kp  Z        &kp  S        &kp  D        &kp  V        &kp  B       &kp  ESC                                           &to DEFAULT    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &kp  C       &kp  SPACE    &kp  LALT      &mo  LOWER            &mo  RAISE    &kp  RET      &kp  RALT     &kp  RGUI
+&kp  ESC      &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
+&kp  M        &kp  LSHIFT   &kp  A        &kp  S        &kp  D        &kp  F                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
+&kp  N1       &kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V       &kp  G                                             &to DEFAULT    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
+                                                        &kp  T        &kp  LALT    &kp  SPACE     &kp  N2               &mo  RAISE    &kp  RET       &kp  RALT     &kp  RGUI
                         >;
                 };
 
