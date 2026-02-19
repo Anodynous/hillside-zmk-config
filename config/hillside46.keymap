@@ -21,10 +21,11 @@
 #define DEFAULT 0
 #define GAMING 1
 #define NUMPAD 2
-#define STENO 3
-#define LOWER 4
-#define RAISE 5
-#define ADJUST 6
+#define COMBO 3
+#define STENO 4
+#define LOWER 5
+#define RAISE 6
+#define ADJUST 7
 
 // Custom Keycodes
 #define _SNIP LG(LS(S))  // Windows snip shortcut
@@ -77,7 +78,6 @@ ZMK_MACRO(macro_emdash,
 &sk {
     release-after-ms = <750>;
     quick-release;
-    /delete-property/ ignore-modifiers;
 };
 
 &msc {
@@ -138,6 +138,22 @@ ZMK_MACRO(macro_emdash,
 &trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                      &trans        &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp KP_PLUS   &trans
 &trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT       &kp  LALT                                          &trans          &trans        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp DOT       &kp COMMA
                                                         &trans        &kp N0        &trans          &mo  LOWER            &mo  RAISE   &kp KP_ENTER    &kp KP_N0     &trans
+                        >;
+                };
+
+                combo_layer {
+/* COMBO
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |CrAlESC|CrAl+1 |CrAl+2 |CrAl+3 |CrAl+4 |CrAl+5 |-----------------------------------|CrAl+6 |CrAl+7 |CrAl+8 |CrAl+9 |CrAl+0 |CrAlDEL|
+ * |       | Crl+1 | Crl+2 | Crl+3 | Crl+4 | Crl+5 |-----------------------------------| Crl+6 | Crl+7 | Crl+8 | Crl+9 | Crl+0 |       |
+ * |       | Alt+1 | Alt+2 | Alt+3 | Alt+4 | Alt+5 |       |-------------------|       | Alt+6 | Alt+7 | Alt+8 | Alt+9 | Alt+0 |       |
+ *                                 |       |       |       |        |---|      |       |       |       |
+ */
+                        bindings = <
+&kp LC(LA(ESC)) &kp LC(LA(1)) &kp LC(LA(2)) &kp LC(LA(3)) &kp LC(LA(4)) &kp LC(LA(5))                                                                    &kp LC(LA(6)) &kp LC(LA(7)) &kp LC(LA(8)) &kp LC(LA(9)) &kp LC(LA(0)) &kp LC(LA(DEL))
+&trans          &kp LC(1)     &kp LC(2)     &kp LC(3)     &kp LC(4)     &kp LC(5)                                                                        &kp LC(6)     &kp LC(7)     &kp LC(8)     &kp LC(9)     &kp LC(0)     &trans
+&trans          &kp LA(1)     &kp LA(2)     &kp LA(3)     &kp LA(4)     &kp LA(5)     &trans                                             &trans          &kp LA(6)     &kp LA(7)     &kp LA(8)     &kp LA(9)     &kp LA(0)     &trans
+                                                          &trans        &trans        &trans          &mo  LOWER            &mo  RAISE   &trans          &trans        &trans
                         >;
                 };
 
@@ -202,10 +218,10 @@ ZMK_MACRO(macro_emdash,
  *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
-&bt BT_NXT    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                     &bt BT_CLR    &kp F7        &kp F8        &kp F9        &kp F10       &trans
-&bt BT_PRV    &to STENO     &to NUMPAD    &to GAMING    &to DEFAULT   &kp CLCK                                                                         &trans        &kp F4        &kp F5        &kp F6        &kp F11       &trans
-&trans        &trans        &trans        &trans        &trans        &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &trans
-                                                        &trans        &trans        &trans          &trans                &trans       &trans          &trans        &trans
+&out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                     &bt BT_CLR    &kp F7        &kp F8        &kp F9        &kp F10       &trans
+&sk LSHFT     &to STENO     &to NUMPAD    &to GAMING    &to DEFAULT   &kp CLCK                                                                         &trans        &kp F4        &kp F5        &kp F6        &kp F11       &trans
+&sk LCTRL     &trans        &trans        &trans        &trans        &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &sk LC(LALT)
+                                                        &trans        &sk LALT      &trans          &trans                &trans       &trans          &trans        &trans
                         >;
                 };
 
@@ -219,10 +235,10 @@ ZMK_MACRO(macro_emdash,
  *                                 |       |       |       |        |---|      |       |       |       |
  */
 //                        bindings = <
-//&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
-//&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
-//&trans        &trans        &trans        &trans        &trans        &trans      &trans                                             &trans          &trans        &trans        &trans        &trans        &trans        &trans
-//                                                        &trans        &trans      &trans          &trans                &trans       &trans          &trans        &trans
+//&trans        &trans        &trans        &trans        &trans        &trans                                                                           &trans        &trans        &trans        &trans        &trans        &trans
+//&trans        &trans        &trans        &trans        &trans        &trans                                                                           &trans        &trans        &trans        &trans        &trans        &trans
+//&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans          &trans        &trans        &trans        &trans        &trans        &trans
+//                                                        &trans        &trans        &trans          &trans                &trans       &trans          &trans        &trans
 //                        >;
 //                };
         
