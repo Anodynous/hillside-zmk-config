@@ -171,7 +171,7 @@ ZMK_MACRO(macro_apos,
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
  * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                                                  |       |       |       |        |---|      |       |       |       |
+ *                                 |       |       |       |        |---|      |       |       |       |
  */
                         bindings = <
 &trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                            &kp Y         &kp U         &kp I         &kp O         &kp P         &kp FI_ARNG
@@ -202,15 +202,15 @@ ZMK_MACRO(macro_apos,
                 raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ * |   €   |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |   $   |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |   £   |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
  *                                 |       |       |       |        |---|      |       |       |       |
   */
                         bindings = <
-&trans        &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
-&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&trans        &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
+&kp FI_EURO   &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
+&kp FI_DLR    &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
+&kp FI_PND    &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
                                                         &trans        &trans        &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
                         >;
                 };
