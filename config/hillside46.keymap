@@ -71,6 +71,14 @@ ZMK_MACRO(macro_emdash,
                <&macro_tap &kp KP_N1>,
                <&macro_release &kp LALT>;
 )
+// Macro for disabling &mo RAISE after outputting an apostrophe (') to avoid accidental activation of LOWER layer mappings during typing
+ZMK_MACRO(macro_apos,
+    wait-ms = <1>;
+    tap-ms = <1>;
+    bindings = <&macro_tap &kp FI_QUOT>,
+               <&macro_release &mo RAISE>;
+)
+
 &soft_off {
     hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
 };
@@ -201,7 +209,7 @@ ZMK_MACRO(macro_emdash,
   */
                         bindings = <
 &trans        &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
-&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &kp FI_QUOT
+&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
 &trans        &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
                                                         &trans        &trans        &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
                         >;
