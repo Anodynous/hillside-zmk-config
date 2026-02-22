@@ -76,8 +76,7 @@ ZMK_MACRO(macro_emdash,
 };
 
 &sk {
-    release-after-ms = <750>;
-    quick-release;
+    release-after-ms = <850>;
 };
 
 &msc {
