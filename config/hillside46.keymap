@@ -22,10 +22,11 @@
 #define GAMING 1
 #define NUMPAD 2
 #define COMBO 3
-#define STENO 4
-#define LOWER 5
-#define RAISE 6
-#define ADJUST 7
+#define APPLE 4
+#define STENO 5
+#define LOWER 6
+#define RAISE 7
+#define ADJUST 8
 
 // Custom Keycodes
 #define _SNIP LG(LS(S))  // Windows snip shortcut
@@ -165,6 +166,23 @@ ZMK_MACRO(macro_apos,
                 };
 
 
+//                apple_layer {
+/* APPLE
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * | TAB   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
+ * | LSHFT |   A   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
+ * | LCTRL |   Z   |   X   |   C   |   V   |   B   |  MUTE |-------------------| PLAY  |   N   |   M   |   ,   |   .   |   -   | RSHFT |
+ *                                 | NUMPAD|  LALT | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
+ */
+                        bindings = <
+&kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                           &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
+&kp  LSHFT    &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                           &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
+&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  C_MUTE                                        &kp C_PP        &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
+                                                        &mo NUMPAD    &kp  LALT     &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  RALT     &kp  RGUI
+                        >;
+                };
+
+
                 steno_layer {
 /* STENO
  * -------------------------------------------------------------------------------------------------------------------------------------
@@ -221,13 +239,13 @@ ZMK_MACRO(macro_apos,
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |OUT TOG| BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------| BT CLR|  F7   |  F8   |  F9   |  F10  |       |
  * |SK SHFT| STENO | NUMPAD| GAMING|DEFAULT| CAPS  |-----------------------------------|       |  F4   |  F5   |  F6   |  F11  |       |
- * |SK LCRL|       |       |       |1 COMBO|       | SCRL ←|-------------------| SCRL →|       |  F1   |  F2   |  F3   |  F12  |SK CrAl|
+ * |SK LCRL|       |       | APPLE |1 COMBO|       | SCRL ←|-------------------| SCRL →|       |  F1   |  F2   |  F3   |  F12  |SK CrAl|
  *                                 |       |SK LALT|       |       |---|       |       |SK RALT| SK WIN|
  */
                         bindings = <
 &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                     &bt BT_CLR    &kp F7        &kp F8        &kp F9        &kp F10       &trans
 &sk LSHFT     &to STENO     &to NUMPAD    &to GAMING    &to DEFAULT   &kp CLCK                                                                         &trans        &kp F4        &kp F5        &kp F6        &kp F11       &trans
-&sk LCTRL     &trans        &trans        &trans        &sl COMBO     &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &sk LC(LALT)
+&sk LCTRL     &trans        &trans        &to APPLE     &to COMBO     &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &sk LC(LALT)
                                                         &trans        &sk LALT      &trans          &trans                &trans       &trans          &sk RALT     &sk RGUI
                         >;
                 };
