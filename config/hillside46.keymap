@@ -102,8 +102,8 @@ ZMK_MACRO(macro_apos,
 /* QWERTY
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | TAB   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
- * | LSHIFT|   A   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
- * | CTRL  |   Z   |   X   |   C   |   V   |   B   |  MUTE |-------------------| PLAY  |   N   |   M   |   ,   |   .   |   -   | RSHIFT|
+ * | LSHFT |   A   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
+ * | LCTRL |   Z   |   X   |   C   |   V   |   B   |  MUTE |-------------------| PLAY  |   N   |   M   |   ,   |   .   |   -   | RSHFT |
  *                                 | NUMPAD|  LALT | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
  */
                         bindings = <
@@ -120,7 +120,7 @@ ZMK_MACRO(macro_apos,
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |  ESC  |  TAB  |   Q   |   W   |   E   |   R   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
  * |   M   | LSHIFT|   A   |   S   |   D   |   F   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
- * |   B   |  CTRL |   Z   |   X   |   C   |   V   |   T   |-------------------| MUTE  |   N   |   M   |   ,   |   .   |   -   | RSHIFT|
+ * |   B   |  CTRL |   Z   |   X   |   C   |   V   |   T   |-------------------| MUTE  |   N   |   M   |   ,   |   .   |   -   | RSHFT |
  *                                 |  LALT |   G   | SPACE | LOWER |---| RAISE | ENTER |  RALT |  GUI  |
  */
                         bindings = <
@@ -135,15 +135,15 @@ ZMK_MACRO(macro_apos,
                 numpad_layer {
 /* NUMPAD
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       | LALT  |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ * |       |   ,   |   7   |   8   |   9   |   -   |-----------------------------------|   €   |   7   |   8   |   9   |   -   |   /   |
+ * |       |   0   |   4   |   5   |   6   |   +   |-----------------------------------|   $   |   4   |   5   |   6   |   +   |   *   |
+ * |       |   0   |   1   |   2   |   3   |   .   | LALT  |-------------------|       |   £   |   1   |   2   |   3   |   .   |   ,   |
+ *                                 |       |   0   | SPACE | LOWER |---| RAISE | ENTER |   0   |  WIN  |
  */
                         bindings = <
-&trans        &kp COMMA     &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                     &trans        &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS  &trans
-&trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                      &trans        &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp KP_PLUS   &trans
-&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT       &kp  LALT                                          &trans          &trans        &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp DOT       &kp COMMA
+&trans        &kp COMMA     &kp N7        &kp N8        &kp N9        &kp KP_MINUS                                                                     &kp FI_EURO   &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS  &kp KP_DIVIDE
+&trans        &kp N0        &kp N4        &kp N5        &kp N6        &kp KP_PLUS                                                                      &kp FI_DLR    &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp KP_PLUS   &kp KP_MULTIPLY
+&trans        &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT       &kp  LALT                                          &trans          &kp FI_PND    &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp DOT       &kp COMMA
                                                         &trans        &kp N0        &trans          &mo  LOWER            &mo  RAISE   &kp KP_ENTER    &kp KP_N0     &trans
                         >;
                 };
@@ -151,10 +151,10 @@ ZMK_MACRO(macro_apos,
                 combo_layer {
 /* COMBO
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |CrAlESC|CrAl+1 |CrAl+2 |CrAl+3 |CrAl+4 |CrAl+5 |-----------------------------------|CrAl+6 |CrAl+7 |CrAl+8 |CrAl+9 |CrAl+0 |CrAlDEL|
+ * |CrAlESC| CrAl+1| CrAl+2| CrAl+3| CrAl+4| CrAl+5|-----------------------------------| CrAl+6| CrAl+7| CrAl+8| CrAl+9| CrAl+0|CrAlDEL|
  * |       | Crl+1 | Crl+2 | Crl+3 | Crl+4 | Crl+5 |-----------------------------------| Crl+6 | Crl+7 | Crl+8 | Crl+9 | Crl+0 |       |
  * |       | Alt+1 | Alt+2 | Alt+3 | Alt+4 | Alt+5 |       |-------------------|       | Alt+6 | Alt+7 | Alt+8 | Alt+9 | Alt+0 |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ *                                 |       |       |       | LOWER |---| RAISE |       |       |       |
  */
                         bindings = <
 &kp LC(LA(ESC)) &kp LC(LA(1)) &kp LC(LA(2)) &kp LC(LA(3)) &kp LC(LA(4)) &kp LC(LA(5))                                                                    &kp LC(LA(6)) &kp LC(LA(7)) &kp LC(LA(8)) &kp LC(LA(9)) &kp LC(LA(0)) &kp LC(LA(DEL))
@@ -168,14 +168,14 @@ ZMK_MACRO(macro_apos,
                 steno_layer {
 /* STENO
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ * |       |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |   Å   |
+ * |       |   A   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   Ö   |   Ä   |
+ * |       |  n/a  |  n/a  |  n/a  |  n/a  |  n/a  |  MUTE |-------------------| PLAY  |  n/a  |  n/a  |  n/a  |  n/a  |  n/a  | SPACE |
+ *                                 |   #   |   C   |   V   | LOWER |---| RAISE |   N   |   M   |   #   |
  */
                         bindings = <
 &trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                            &kp Y         &kp U         &kp I         &kp O         &kp P         &kp FI_ARNG
-&kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G                                                                            &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
+&trans        &kp A         &kp S         &kp D         &kp F         &kp G                                                                            &kp H         &kp J         &kp K         &kp L         &kp FI_ODIA   &kp FI_ADIA
 &trans        &none         &none         &none         &none         &none         &kp  C_MUTE                                        &kp C_PP        &none         &none         &none         &none         &none         &kp SPACE
                                                         &kp N1        &kp C         &kp V           &mo  LOWER            &mo  RAISE   &kp N           &kp M         &kp N1
                         >;
@@ -185,10 +185,10 @@ ZMK_MACRO(macro_apos,
                 lower_layer {
 /* LOWER
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ * |  ESC  |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |   —   |
+ * |       |   !   |   "   |   #   |   =   |   %   |-----------------------------------|   &   |   /   |   (   |   )   |   ?   |   |   |
+ * |   ^   |   ~   |   @   |   +   |   {   |   }   | VOL - |-------------------| VOL + |   [   |   ]   |   <   |   >   |   \   |   *   |
+ *                                 |       |       |       |       |---| ADJUST|       |       |       |
  */
                         bindings = <
 &kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                          &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &macro_emdash
@@ -202,15 +202,15 @@ ZMK_MACRO(macro_apos,
                 raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
- * |   €   |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |   $   |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |   £   |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ * |       | ALT F4|  INS  | PSCRN |CTXMENU|       |-----------------------------------|       | ← WORD|   ↑   | WORD →|       |   `   |
+ * |       | REDO  |  SAVE | SNIP  | SEARCH|       |-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
+ * |       | UNDO  |  CUT  | COPY  | PASTE |       | SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  | BSPACE|   ´   |
+ *                                 |       |       | BSPC  | ADJUST|---|       |       |       |       |
   */
                         bindings = <
-&kp FI_EURO   &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
-&kp FI_DLR    &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&kp FI_PND    &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
+&trans        &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
+&trans        &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
+&trans        &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
                                                         &trans        &trans        &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
                         >;
                 };
@@ -219,16 +219,16 @@ ZMK_MACRO(macro_apos,
                 adjust_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
- * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ * |OUT TOG| BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------| BT CLR|  F7   |  F8   |  F9   |  F10  |       |
+ * |SK SHFT| STENO | NUMPAD| GAMING|DEFAULT| CAPS  |-----------------------------------|       |  F4   |  F5   |  F6   |  F11  |       |
+ * |SK LCRL|       |       |       |1 COMBO|       | SCRL ←|-------------------| SCRL →|       |  F1   |  F2   |  F3   |  F12  |SK CrAl|
+ *                                 |       |SK LALT|       |       |---|       |       |SK RALT| SK WIN|
  */
                         bindings = <
 &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                     &bt BT_CLR    &kp F7        &kp F8        &kp F9        &kp F10       &trans
 &sk LSHFT     &to STENO     &to NUMPAD    &to GAMING    &to DEFAULT   &kp CLCK                                                                         &trans        &kp F4        &kp F5        &kp F6        &kp F11       &trans
-&sk LCTRL     &trans        &trans        &trans        &trans        &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &sk LC(LALT)
-                                                        &trans        &sk LALT      &trans          &trans                &trans       &trans          &trans        &trans
+&sk LCTRL     &trans        &trans        &trans        &sl COMBO     &trans        &msc SCRL_LEFT                                     &msc SCRL_RIGHT &trans        &kp F1        &kp F2        &kp F3        &kp F12       &sk LC(LALT)
+                                                        &trans        &sk LALT      &trans          &trans                &trans       &trans          &sk RALT     &sk RGUI
                         >;
                 };
 
@@ -239,7 +239,7 @@ ZMK_MACRO(macro_apos,
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
  * |       |       |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
  * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
- *                                 |       |       |       |        |---|      |       |       |       |
+ *                                 |       |       |       |       |---|       |       |       |       |
  */
 //                        bindings = <
 //&trans        &trans        &trans        &trans        &trans        &trans                                                                           &trans        &trans        &trans        &trans        &trans        &trans
