@@ -85,7 +85,7 @@ ZMK_MACRO(macro_apos,
 };
 
 &sk {
-    release-after-ms = <850>;
+    release-after-ms = <1000>;
 };
 
 &sl {
