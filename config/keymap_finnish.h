@@ -102,12 +102,12 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
-#define FI_HALF (LS(FI_SECT)) // ½
-#define FI_EXLM (LS(FI_1))    // !
-#define FI_DQUO (LS(FI_2))    // "
-#define FI_HASH (LS(FI_3))    // #
-#define FI_CURR (LS(FI_4))    // ¤
-#define FI_PERC (LS(FI_5))    // %
+#define FI_HALF (RS(FI_SECT)) // ½
+#define FI_EXLM (RS(FI_1))    // !
+#define FI_DQUO (RS(FI_2))    // "
+#define FI_HASH (RS(FI_3))    // #
+#define FI_CURR (RS(FI_4))    // ¤
+#define FI_PERC (RS(FI_5))    // %
 #define FI_AMPR (LS(FI_6))    // &
 #define FI_SLSH (LS(FI_7))    // /
 #define FI_LPRN (LS(FI_8))    // (
