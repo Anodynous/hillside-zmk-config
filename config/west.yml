@@ -13,6 +13,6 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-behavior-whitelist-layer
-      path: zmk-behavior-whitelist-layer
+      url: ./zmk-behavior-whitelist-layer
   self:
     path: config
