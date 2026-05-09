@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: anodynous
+      url-base: https://github.com/Anodynous
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -11,6 +13,9 @@ manifest:
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
+      revision: main
+    - name: zmk-behavior-whitelist-layer
+      remote: anodynous
       revision: main
   self:
     path: config
