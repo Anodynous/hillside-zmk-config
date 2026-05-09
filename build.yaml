@@ -18,8 +18,10 @@ include:
 #   Comment out below if you do not have this board, to save build time
   - board: nice_nano//zmk
     shield: hillside46_left
+    extra-cmake-args: -DZMK_EXTRA_MODULES="/__w/hillside-zmk-config/hillside-zmk-config/zmk-behavior-whitelist-layer"
   - board: nice_nano//zmk
     shield: hillside46_right
+    extra-cmake-args: -DZMK_EXTRA_MODULES="/__w/hillside-zmk-config/hillside-zmk-config/zmk-behavior-whitelist-layer"
   - board: nice_nano//zmk
     shield: settings_reset
 

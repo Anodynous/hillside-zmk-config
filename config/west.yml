@@ -12,7 +12,5 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
-    - name: zmk-behavior-whitelist-layer
-      url: ./zmk-behavior-whitelist-layer
   self:
     path: config
