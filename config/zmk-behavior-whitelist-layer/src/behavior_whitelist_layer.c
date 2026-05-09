@@ -41,6 +41,9 @@ static int whitelist_layer_pressed(struct zmk_behavior_binding *binding,
 
 static int whitelist_layer_released(struct zmk_behavior_binding *binding,
                                     struct zmk_behavior_binding_event event) {
+    if (!layer_active) {
+        return ZMK_BEHAVIOR_OPAQUE;
+    }
     int ret = zmk_keymap_layer_deactivate(active_layer, false);
     layer_active = false;
     active_layer = 0;
@@ -85,7 +88,7 @@ static int whitelist_layer_listener(const zmk_event_t *eh) {
 
     uint16_t keycode = get_keycode_at_pos(ev->position, active_layer);
 
-    if (keycode != 0 && !is_whitelisted(keycode)) {
+    if (keycode == 0 || !is_whitelisted(keycode)) {
         zmk_keymap_layer_deactivate(active_layer, false);
         layer_active = false;
         active_layer = 0;
