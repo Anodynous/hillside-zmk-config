@@ -235,15 +235,15 @@ ZMK_MACRO(macro_apos,
                 raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
- * |  TAB  | ALT F4|  INS  | PSCRN |CTXMENU|       |-----------------------------------|       | ← WORD|   ↑   | WORD →|       |   `   |
- * | LSHFT | REDO  |  SAVE | SNIP  | SEARCH|       |-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
- * | LCTRL | UNDO  |  CUT  | COPY  | PASTE |       | SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  | BSPACE|   ´   |
+ * |  TAB  | ALT F4|  INS  | PSCRN |       |       |-----------------------------------|       | ← WORD|   ↑   | WORD →|       |   ´   |
+ * | LSHFT |       |       |       |       |       |-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
+ * | LCTRL |       |  CUT  | COPY  | PASTE |       | SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  | BSPACE|   `   |
  *                                 |       |       | BSPC  | ADJUST|---|       |       |       |       |
   */
                         bindings = <
-&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &kp K_CMENU   &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_GRV
-&kp LSHFT     &kp _REDO     &kp _SAVE     &kp _SNIP     &kp _SEARCH   &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&kp LCTRL     &kp _UNDO     &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_ACUT
+&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &trans        &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
+&kp LSHFT     &trans        &trans        &trans        &trans        &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
+&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp BSPC      &kp FI_GRV
                                                         &trans        &trans        &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
                         >;
                 };
