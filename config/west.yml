@@ -4,11 +4,16 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: anodynous
+      url-base: https://github.com/Anodynous
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-dynamic-macros
+      remote: anodynous
+      revision: main
     - name: zmk-helpers
       remote: urob
       revision: main

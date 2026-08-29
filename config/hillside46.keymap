@@ -11,6 +11,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include "keymap_finnish.h"
 #include "zmk-helpers/helper.h"
+#include <dt-bindings/zmk/dynamic_macros.h>
+#include <behaviors/dynamic_macro.dtsi>
 
 // Configure mouse emulation (define defaults before including header)
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600       // default: 600
@@ -235,16 +237,16 @@ ZMK_MACRO(macro_apos,
                 raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
- * |  TAB  | ALT F4|  INS  | PSCRN |       |       |-----------------------------------|       | ← WORD|   ↑   | WORD →|       |   ´   |
- * | LSHFT |       |       |       |       |       |-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
- * | LCTRL |       |  CUT  | COPY  | PASTE |       | SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  |  GUI  |   `   |
+ * |  TAB  | ALT F4|  INS  | PSCRN | DM ON | DM OFF|-----------------------------------| DM DEL| ← WORD|   ↑   | WORD →|       |   ´   |
+ * | LSHFT |       |       |       |       | DM R#1|-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
+ * | LCTRL |       |  CUT  | COPY  | PASTE | DM R#2| SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  |  GUI  |   `   |
  *                                 |       |       | BSPC  | ADJUST|---|       |       |       |       |
  */
                         bindings = <
-&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &trans        &trans                                                                           &trans        &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
-&kp LSHFT     &trans        &trans        &trans        &trans        &trans                                                                           &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &trans        &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp RGUI      &kp FI_GRV
-                                                        &trans        &trans        &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
+&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &dm DM_REC 0  &dm DM_STP 0                                                                             &dm DM_DEL 0  &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
+&kp LSHFT     &trans        &trans        &trans        &trans        &dm DM_SLOT_RAM 0                                                                        &kp PG_UP     &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
+&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 1     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN     &kp HOME      &kp DEL       &kp END       &kp RGUI      &kp FI_GRV
+                                                        &trans        &trans                &kp BSPC        &mo ADJUST            &trans       &trans          &trans        &trans
                         >;
                 };
 
