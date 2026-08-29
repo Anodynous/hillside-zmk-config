@@ -85,6 +85,17 @@ ZMK_MACRO(macro_emdash,
                <&macro_tap &kp KP_N1>,
                <&macro_release &kp LALT>;
 )
+// Macro for outputting three backticks (`)
+ZMK_MACRO(macro_tritick,
+    wait-ms = <2>;
+    tap-ms = <2>;
+    bindings = <&macro_tap &kp FI_GRV>,
+               <&macro_tap &kp SPACE>,
+               <&macro_tap &kp FI_GRV>,
+               <&macro_tap &kp SPACE>,
+               <&macro_tap &kp FI_GRV>,
+               <&macro_tap &kp SPACE>;
+)
 // Macro for disabling &mo RAISE after outputting an apostrophe (') to avoid accidental activation of LOWER layer mappings during typing
 ZMK_MACRO(macro_apos,
     wait-ms = <1>;
@@ -237,16 +248,16 @@ ZMK_MACRO(macro_apos,
                 raise_layer {
 /* RAISE
   * -------------------------------------------------------------------------------------------------------------------------------------
- * |  TAB  | ALT F4|  INS  | PSCRN | DM TOG| DM R#1|-----------------------------------| DM N#1| ← WORD|   ↑   | WORD →|       |   ´   |
+ * |  TAB  | ALT F4|  INS  | PSCRN | DM TOG| DM R#1|-----------------------------------|  ```  | ← WORD|   ↑   | WORD →|       |   ´   |
  * | LSHFT |       |       |       |       | DM R#2|-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
  * | LCTRL |       |  CUT  | COPY  | PASTE | DM R#3| SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  |  GUI  |   `   |
  *                                 |       |       | BSPC  | ADJUST|---|       |       |       |       |
  */
                         bindings = <
-&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &dm DM_TOG 0  &dm DM_SLOT_RAM 0                                                                        &dm DM_SLOT_NVS 0  &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
-&kp LSHFT     &trans        &trans        &trans        &trans        &dm DM_SLOT_RAM 1                                                                        &kp PG_UP          &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN          &kp HOME      &kp DEL       &kp END       &kp RGUI      &kp FI_GRV
-                                                        &trans        &trans                &kp BSPC        &mo ADJUST            &trans       &trans          &trans             &trans
+&kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &dm DM_TOG 0  &dm DM_SLOT_RAM 0                                                                        &macro_tritick  &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
+&kp LSHFT     &trans        &trans        &trans        &trans        &dm DM_SLOT_RAM 1                                                                        &kp PG_UP       &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
+&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN       &kp HOME      &kp DEL       &kp END       &kp RGUI      &kp FI_GRV
+                                                        &trans        &trans                &kp BSPC        &mo ADJUST            &trans       &trans          &trans          &trans
                         >;
                 };
 
