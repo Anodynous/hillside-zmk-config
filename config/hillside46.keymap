@@ -53,6 +53,7 @@ ZMK_MACRO(macro_caret,
                <&macro_tap &kp SPACE>,
                <&macro_release &kp LSHFT>;
 )
+
 // Macro for outputting a single tilde (~) symbol
 ZMK_MACRO(macro_tilde,
     wait-ms = <10>;
@@ -63,6 +64,7 @@ ZMK_MACRO(macro_tilde,
                <&macro_release &kp RALT>,
                <&macro_tap &kp BSPC>;
 )
+
 // Macro for outputting a single en dash (–) punctuation mark
 ZMK_MACRO(macro_endash,
     wait-ms = <2>;
@@ -74,6 +76,7 @@ ZMK_MACRO(macro_endash,
                <&macro_tap &kp KP_N0>,
                <&macro_release &kp LALT>;
 )
+
 // Macro for outputting a single em dash (—) punctuation mark
 ZMK_MACRO(macro_emdash,
     wait-ms = <2>;
@@ -85,6 +88,7 @@ ZMK_MACRO(macro_emdash,
                <&macro_tap &kp KP_N1>,
                <&macro_release &kp LALT>;
 )
+
 // Macro for outputting three backticks (`)
 ZMK_MACRO(macro_tritick,
     wait-ms = <2>;
@@ -96,6 +100,7 @@ ZMK_MACRO(macro_tritick,
                <&macro_tap &kp FI_GRV>,
                <&macro_tap &kp SPACE>;
 )
+
 // Macro for disabling &mo RAISE after outputting an apostrophe (') to avoid accidental activation of LOWER layer mappings during typing
 ZMK_MACRO(macro_apos,
     wait-ms = <1>;
@@ -103,6 +108,25 @@ ZMK_MACRO(macro_apos,
     bindings = <&macro_tap &kp FI_QUOT>,
                <&macro_release &mo RAISE>;
 )
+
+// Macro for outputting a single backtick (`)
+ZMK_MACRO(macro_backtick,
+    wait-ms = <2>;
+    tap-ms = <2>;
+    bindings = <&macro_tap &kp FI_GRV>,
+               <&macro_tap &kp SPACE>;
+)
+
+// Tap = macro_backtick, Hold = plain FI_GRV accent
+/ {
+    behaviors {
+        grv_ht: grv_holdtap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&macro_backtick>;
+        };
+    };
+};
 
 &soft_off {
     hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
@@ -256,7 +280,7 @@ ZMK_MACRO(macro_apos,
                         bindings = <
 &kp TAB       &kp _ALTF4    &kp INS       &kp PSCRN     &dm DM_TOG 0  &dm DM_SLOT_RAM 0                                                                        &macro_tritick  &kp _PWRD     &kp UP        &kp _NWRD     &trans        &kp FI_ACUT
 &kp LSHFT     &trans        &trans        &trans        &trans        &dm DM_SLOT_RAM 1                                                                        &kp PG_UP       &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD    &macro_apos
-&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN       &kp HOME      &kp DEL       &kp END       &kp RGUI      &kp FI_GRV
+&kp LCTRL     &trans        &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN       &kp HOME      &kp DEL       &kp END       &kp RGUI      &grv_ht FI_GRV 0
                                                         &trans        &trans                &kp BSPC        &mo ADJUST            &trans       &trans          &trans          &trans
                         >;
                 };
