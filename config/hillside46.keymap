@@ -126,6 +126,17 @@ ZMK_MACRO(macro_backtick,
             tapping-term-ms = <200>;
             bindings = <&kp>, <&macro_backtick>;
         };
+
+        // NUMPAD key: hold = momentary NUMPAD layer
+        // tap = switch default layer to RAISE (gives left-hand RAISE access).
+        // Return to the default layer via the &to DEFAULT mapping in the
+        // RAISE layer at this same key position.
+        np_raise_ht: numpad_holdtap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&mo NUMPAD>, <&to RAISE>;
+        };
     };
 };
 
@@ -179,7 +190,7 @@ ZMK_MACRO(macro_backtick,
 &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                           &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
 &kp  LSHFT    &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                           &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
 &kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  C_MUTE                                        &kp C_PP        &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &kp LALT      &mo NUMPAD    &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  RALT     &kp  RGUI
+                                                        &kp LALT      &np_raise_ht    &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  RALT     &kp  RGUI
                         >;
                 };
 
@@ -246,7 +257,7 @@ ZMK_MACRO(macro_backtick,
 &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                           &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  FI_ARNG
 &kp  LSHFT    &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                           &kp  H        &kp  J        &kp  K        &kp  L        &kp  FI_ODIA  &kp  FI_ADIA
 &kp  RGUI     &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  C_MUTE                                        &kp C_PP        &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  FI_MINS  &kp  RSHFT
-                                                        &kp  LALT     &mo NUMPAD    &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  GLOBE    &kp  LCTRL
+                                                        &kp  LALT     &np_raise_ht    &kp  SPACE     &mo  LOWER             &mo  RAISE   &kp  RET        &kp  GLOBE    &kp  LCTRL
                         >;
                 };
 
@@ -291,13 +302,13 @@ ZMK_MACRO(macro_backtick,
  * |  TAB  | ALT F4|  INS  | PSCRN | DM TOG| DM R#1|-----------------------------------|  ```  | ← WORD|   ↑   | WORD →| DM N#1|   ´   |
  * | LSHFT |       |       |       |       | DM R#2|-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
  * | LCTRL | DM N#2|  CUT  | COPY  | PASTE | DM R#3| SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  |  GUI  |   `   |
- *                                 |       |       | BSPC  | LOWER |---|       |       |       |       |
+ *                                 |       | DEFAULT | BSPC  | LOWER |---|       |       |       |       |
  */
                         bindings = <
 &kp TAB       &kp _ALTF4            &kp INS       &kp PSCRN     &dm DM_TOG 0  &dm DM_SLOT_RAM 0                                                                        &macro_tritick  &kp _PWRD     &kp UP        &kp _NWRD     &dm DM_SLOT_NVS 0  &kp FI_ACUT
 &kp LSHFT     &trans                &trans        &trans        &trans        &dm DM_SLOT_RAM 1                                                                        &kp PG_UP       &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD         &macro_apos
 &kp LCTRL     &dm DM_SLOT_NVS 1     &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN       &kp HOME      &kp DEL       &kp END       &kp RGUI           &grv_ht FI_GRV 0
-                                                                &trans        &trans                &kp BSPC        &mo LOWER             &trans       &trans          &trans          &trans
+                                                                &trans        &to DEFAULT           &kp BSPC        &mo LOWER             &trans       &trans          &trans          &trans
                         >;
                 };
 
