@@ -129,6 +129,21 @@ ZMK_MACRO(macro_backtick,
     };
 };
 
+// Tri-layer: ADJUST is active if and only if both the LOWER and RAISE layers are
+// active. This makes the active layer a pure function of which of the two
+// momentary keys are currently held, regardless of press/release order.
+// NOTE: do not add any regular layer behavior (e.g. &mo ADJUST) targeting the
+// ADJUST layer; its activation is controlled exclusively by this configuration.
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <ADJUST>;
+        };
+    };
+};
+
 &soft_off {
     hold-time-ms = <3000>; // Only turn off it the key is held for 3 seconds or longer.
 };
@@ -259,13 +274,13 @@ ZMK_MACRO(macro_backtick,
  * |  ESC  |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |   —   |
  * | LSHFT |   !   |   "   |   #   |   =   |   %   |-----------------------------------|   &   |   /   |   (   |   )   |   ?   |   |   |
  * |   ^   |   ~   |   @   |   +   |   {   |   }   | VOL - |-------------------| VOL + |   [   |   ]   |   <   |   >   |   \   |   *   |
- *                                 |       |       |       |       |---| ADJUST|       |       |       |
+ *                                 |       |       |       |       |---| RAISE |       |       |       |
  */
                         bindings = <
 &kp ESC       &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                          &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &macro_endash
 &kp LSHFT     &kp  FI_EXLM  &kp  FI_DQUO  &kp  FI_HASH  &kp  FI_EQL   &kp  FI_PERC                                                                     &kp  FI_AMPR  &kp  FI_SLSH  &kp  FI_LPRN  &kp  FI_RPRN  &kp  FI_QUES  &kp FI_PIPE
 &macro_caret  &macro_tilde  &kp  FI_AT    &kp  FI_PLUS  &kp  FI_LCBR  &kp  FI_RCBR  &kp C_VOL_DN                                       &kp C_VOL_UP    &kp  FI_LBRC  &kp  FI_RBRC  &kp  FI_LABK  &kp  FI_RABK  &kp  FI_BSLS  &kp FI_ASTR
-                                                        &trans        &trans        &trans          &trans                &mo ADJUST   &trans          &trans        &trans
+                                                        &trans        &trans        &trans          &trans                &mo RAISE    &trans          &trans        &trans
                         >;
                 };
 
@@ -276,13 +291,13 @@ ZMK_MACRO(macro_backtick,
  * |  TAB  | ALT F4|  INS  | PSCRN | DM TOG| DM R#1|-----------------------------------|  ```  | ← WORD|   ↑   | WORD →| DM N#1|   ´   |
  * | LSHFT |       |       |       |       | DM R#2|-----------------------------------|PAGE UP|   ←   |   ↓   |   →   |DEL WRD|   '   |
  * | LCTRL | DM N#2|  CUT  | COPY  | PASTE | DM R#3| SCRL ↑|-------------------| SCRL ↓|PAGE DN|  HOME |  DEL  |  END  |  GUI  |   `   |
- *                                 |       |       | BSPC  | ADJUST|---|       |       |       |       |
+ *                                 |       |       | BSPC  | LOWER |---|       |       |       |       |
  */
                         bindings = <
 &kp TAB       &kp _ALTF4            &kp INS       &kp PSCRN     &dm DM_TOG 0  &dm DM_SLOT_RAM 0                                                                        &macro_tritick  &kp _PWRD     &kp UP        &kp _NWRD     &dm DM_SLOT_NVS 0  &kp FI_ACUT
 &kp LSHFT     &trans                &trans        &trans        &trans        &dm DM_SLOT_RAM 1                                                                        &kp PG_UP       &kp LEFT      &kp DOWN      &kp RIGHT     &kp _BSWRD         &macro_apos
 &kp LCTRL     &dm DM_SLOT_NVS 1     &kp _CUT      &kp _COPY     &kp _PASTE    &dm DM_SLOT_RAM 2     &msc SCRL_UP                                       &msc SCRL_DOWN  &kp PG_DN       &kp HOME      &kp DEL       &kp END       &kp RGUI           &grv_ht FI_GRV 0
-                                                                &trans        &trans                &kp BSPC        &mo ADJUST            &trans       &trans          &trans          &trans
+                                                                &trans        &trans                &kp BSPC        &mo LOWER             &trans       &trans          &trans          &trans
                         >;
                 };
 
